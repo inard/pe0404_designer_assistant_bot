@@ -1,0 +1,8 @@
+python-dotenv
+requests
+flask
+flask-cors
+telebot
+openai
+google-auth
+gspread

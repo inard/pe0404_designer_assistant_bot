@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Веб-дизайн от Екатерины: создаём сайты для бизнеса</title>
+	<link rel="stylesheet" href="/static/tilda-blocks-page74146159.min.css" type="text/css" media="all">
+	<link rel="stylesheet" href="/static/tilda-fonts-tildasans.css" type="text/css" media="all">
+	<link rel="stylesheet" href="/static/tilda-grid-3.0.min.css" type="text/css" media="all">
+	<link rel="stylesheet" href="/static/chat.css" type="text/css" media="all">
+</head>
+
+<body class="t-body" style="margin:0;">
+	<div id="allrecords" class="t-records t-records_animated t-records_visible"
+		data-hook="blocks-collection-content-node" data-tilda-project-id="14211113" data-tilda-page-id="74146159"
+		data-tilda-formskey="0d6e36b190aed96f0b038cf914211113" data-tilda-cookie="no" data-tilda-lazy="yes"
+		data-tilda-root-zone="com" data-tilda-project-country="RU">
+		<div id="rec1232758251" class="r t-rec" style="background-color:#292929; " data-animationappear="off"
+			data-record-type="456" data-bg-color="#292929">
+			<div id="nav1232758251" class="t456 t456__positionstatic tmenu-mobile__menucontent_hidden"
+				data-bgcolor-hex="" data-bgcolor-rgba="" data-navmarker="nav1232758251marker" data-appearoffset=""
+				data-bgopacity-two="" data-menushadow="" data-menushadow-css="" data-bgopacity="1"
+				data-menu-items-align="right" data-menu="yes">
+				<div class="t456__maincontainer">
+					<div id="rec1232758266"
+						class="r t-rec t-rec_pt_135 t-rec_pt-res-480_90 t-rec_pb_135 t-rec_pb-res-480_90"
+						style="padding-top:135px;padding-bottom:135px;background-color:#292929; "
+						data-animationappear="off" data-record-type="814" data-bg-color="#292929"> <!-- t814 -->
+						<div class="t814">
+							<div class="t-container">
+								<div class="t814__top t-col t-col_5 " itemscope=""
+									itemtype="http://schema.org/ImageObject">
+									<meta itemprop="image"
+										content="https://static.tildacdn.info/tild6665-3336-4064-b130-613666313163/photo-1657812159077-.jpg">
+									<div class="t814__blocktext-wrapper" style="height: 546px;">
+										<div class="t814__blocktext t-align_left"
+											style="background-color: rgb(255, 243, 201); left: 0px; height: 500px; border-radius: 10px;">
+											<div class="t814__content t-valign_middle">
+												<div class="t814__box">
+													<div class="t814__title t-title t-title_xs " field="title">О
+														Екатерине</div>
+													<div class="t-divider t814__line"
+														style="background-color: #667eea;opacity:0.60;"></div>
+													<div class="t814__descr t-descr t-descr_md " field="descr">Екатерина
+														— профессиональный веб-дизайнер, предлагающий услуги по созданию
+														сайтов-визиток, дизайну лэндингов, корпоративных сайтов,
+														интернет-магазинов и индивидуальных проектов.</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="t-col t-col_7 " itemscope="" itemtype="http://schema.org/ImageObject">
+									<meta itemprop="image"
+										content="https://static.tildacdn.info/tild6665-3336-4064-b130-613666313163/photo-1657812159077-.jpg">
+									<div class="t814__blockimg-wrapper" style="padding-bottom:75.757575757576%;">
+										<div class="t814__blockimg t-bgimg loaded"
+											data-original="https://static.tildacdn.info/tild6665-3336-4064-b130-613666313163/photo-1657812159077-.jpg"
+											bgimgfield="img"
+											style="background-image: url(&quot;https://optim.tildacdn.pub/tild6665-3336-4064-b130-613666313163/-/format/webp/photo-1657812159077-.jpg.webp&quot;); border-radius: 10px;">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div>
+			<!-- Кнопка чата -->
+			<button class="chat-button" id="chatButton" onclick="toggleChat()" title="Открыть чат"></button>
+
+			<!-- Всплывающее окно чата -->
+			<div class="chat-popup" id="chatPopup">
+				<div class="chat-header">
+					<div class="chat-avatar"></div>
+					<div class="chat-title">Чат с ассистентом</div>
+					<button class="close-chat" onclick="toggleChat()">×</button>
+				</div>
+
+				<div class="chat-messages" id="chatMessages">
+					<div class="message assistant">
+						<div class="message-content">
+							Привет! Я виртуальный помощник веб-дизайнера Екатерины. Чем могу помочь?
+						</div>
+					</div>
+				</div>
+
+				<div class="typing-indicator" id="typingIndicator">
+					<div class="typing-dots">
+						<div class="typing-dot"></div>
+						<div class="typing-dot"></div>
+						<div class="typing-dot"></div>
+					</div>
+				</div>
+
+				<div class="chat-input">
+					<form id="chatForm" onsubmit="sendMessage(event)">
+						<textarea id="messageInput" placeholder="Введите сообщение..." autocomplete="off"></textarea>
+						<button type="submit" id="sendButton"></button>
+					</form>
+				</div>
+			</div>
+
+			<script>
+				let chatHistory = [];
+				let isTyping = false;
+
+				function toggleChat() {
+					const popup = document.getElementById('chatPopup');
+					const button = document.getElementById('chatButton');
+
+					if (popup.classList.contains('active')) {
+						// Закрываем чат
+						popup.classList.remove('active');
+						button.classList.remove('hidden');
+					} else {
+						// Открываем чат
+						popup.classList.add('active');
+						button.classList.add('hidden');
+						document.getElementById('messageInput').focus();
+					}
+				}
+
+				function addMessage(content, role) {
+					const messagesContainer = document.getElementById('chatMessages');
+					const messageDiv = document.createElement('div');
+					messageDiv.className = `message ${role}`;
+
+					const contentDiv = document.createElement('div');
+					contentDiv.className = 'message-content';
+					contentDiv.textContent = content;
+
+					messageDiv.appendChild(contentDiv);
+					messagesContainer.appendChild(messageDiv);
+
+					// Прокрутка к последнему сообщению
+					messagesContainer.scrollTop = messagesContainer.scrollHeight;
+				}
+
+				function showTyping() {
+					if (!isTyping) {
+						isTyping = true;
+						document.getElementById('typingIndicator').classList.add('active');
+						document.getElementById('chatMessages').scrollTop = document.getElementById('chatMessages').scrollHeight;
+					}
+				}
+
+				function hideTyping() {
+					isTyping = false;
+					document.getElementById('typingIndicator').classList.remove('active');
+				}
+
+				async function sendMessage(event) {
+					event.preventDefault();
+
+					const input = document.getElementById('messageInput');
+					const button = document.getElementById('sendButton');
+					const message = input.value.trim();
+
+					if (!message) return;
+
+					// Добавляем сообщение пользователя
+					addMessage(message, 'user');
+					chatHistory.push({ role: 'user', content: message });
+
+					// Очищаем поле ввода и блокируем кнопку
+					input.value = '';
+					button.disabled = true;
+
+					// Показываем индикатор печати
+					showTyping();
+
+					try {
+						const response = await fetch('/send', {
+							method: 'POST',
+							headers: {
+								'Content-Type': 'application/x-www-form-urlencoded',
+							},
+							body: `message=${encodeURIComponent(message)}`
+						});
+
+						const data = await response.json();
+
+						if (data.reply) {
+							addMessage(data.reply, 'assistant');
+							chatHistory.push({ role: 'assistant', content: data.reply });
+						} else {
+							addMessage('Извините, произошла ошибка. Попробуйте еще раз.', 'assistant');
+						}
+					} catch (error) {
+						console.error('Ошибка:', error);
+						addMessage('Извините, произошла ошибка соединения. Попробуйте еще раз.', 'assistant');
+					} finally {
+						hideTyping();
+						button.disabled = false;
+						input.focus();
+					}
+				}
+
+				// Закрытие чата по клику вне его
+				document.addEventListener('click', function (event) {
+					const popup = document.getElementById('chatPopup');
+					const button = document.getElementById('chatButton');
+
+					if (!popup.contains(event.target) && !button.contains(event.target)) {
+						popup.classList.remove('active');
+						button.classList.remove('hidden');
+					}
+				});
+
+				// Отправка по Enter (Shift+Enter для новой строки)
+				document.getElementById('messageInput').addEventListener('keydown', function (event) {
+					if (event.key === 'Enter' && !event.shiftKey) {
+						event.preventDefault();
+						sendMessage(event);
+					}
+				});
+
+				// Автоматическое изменение высоты textarea
+				document.getElementById('messageInput').addEventListener('input', function () {
+					this.style.height = 'auto';
+					this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+				});
+			</script>
+		</div>
+
+	</div>
+</body>
+
+</html>

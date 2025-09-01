@@ -58,3 +58,62 @@
 Уведомление о заявке отправлено в служебную группу Telegram:
 
 ![Группа в Telegram 2](./img/11.%20%D0%93%D1%80%D1%83%D0%BF%D0%BF%D0%B0%20%D0%B2%20Telegram%202.png)
+
+## Архитектура бота
+
+![Архитектура бота](./img/12.%20%D0%90%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0%20%D0%B1%D0%BE%D1%82%D0%B0.png)
+
+## Настройки бота
+
+### 1. Webhook для Telegram
+
+Настройте webhook для Telegram, указав адрес Flask-приложения, работающего в вашем домене, например, `https://example.com/webhook`.
+
+### 2. Служебная учётная запись Google
+
+В каталоге `app` создайте текстовый файл `credentials.json` с настройками служебной учётной записи Google.
+
+### 3. Таблица Google Sheets
+
+В Google Sheets создайте таблицу со столбцами
+
+* `Имя`,
+* `Телефон`,
+* `Дата и время`,
+* `Комментарий`,
+* `Источник обращения`
+
+и дайте право на её редактирование служебной учётной записи Google.
+
+### 4. Идентификаторы, ключи и токены
+
+В каталоге `app` создайте текстовый файл `.env` следующего содержания:
+
+```text
+FLASK_SECRET_KEY=
+TELEGRAM_WEBHOOK_URL=/webhook
+TELEGRAM_BOT_TOKEN=
+TELEGRAM_GROUP_ID=
+OPENAI_API_KEY=
+OPENAI_ASSISTANT_ID=
+GOOGLE_SERVICE_ACCOUNT=credentials.json
+GOOGLE_SHEETS_ID=
+```
+
+Укажите свои идентификаторы, ключи и токены.
+
+## Запуск бота
+
+1. В каталоге `app` создайте и активируйте виртуальное окружение:
+    ```bash
+    python3 -m venv .venv
+    source .venv/bin/activate
+    ```
+2. Установите зависимости:
+    ```bash
+    pip install -r requirements.txt
+    ```
+3. Запустите приложение:
+    ```bash
+    python app.py
+    ```
